@@ -1,0 +1,4 @@
+token_git
+.hcl
+.terraform.lock.hcl
+.terraform
