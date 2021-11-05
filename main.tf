@@ -4,8 +4,8 @@ provider "google" {
   zone    = var.zone
 }
 
-resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
+resource "google_compute_instance" "master-01" {
+  name         = "master-01"
   machine_type = "e2-medium"
 
   boot_disk {
