@@ -21,3 +21,23 @@ resource "google_compute_instance" "master-01" {
     }
   }
 }
+
+resource "google_compute_instance" "worker" {
+  name         = "worker-${count.index + 1}"
+  machine_type = "e2-medium"
+  count        = 2
+  tags         = ["node"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  network_interface {
+    # A default network is created for all GCP projects
+    network = "default"
+    access_config {
+    }
+  }
+}
