@@ -42,3 +42,9 @@ resource "google_compute_instance" "worker" {
     }
   }
 }
+data "google_client_openid_userinfo" "me" {
+}
+resource "google_os_login_ssh_public_key" "my_key_pub" {
+  user =  data.google_client_openid_userinfo.me.email
+  key = file("~/.ssh/google_compute_engine.pub")
+}
