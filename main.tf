@@ -7,6 +7,7 @@ provider "google" {
 resource "google_compute_instance" "master-01" {
   name         = "master-01"
   machine_type = "e2-medium"
+  tags         = ["master"]
 
   boot_disk {
     initialize_params {
